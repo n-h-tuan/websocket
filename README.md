@@ -1,4 +1,4 @@
-Several tips when using socket.
+#Several tips when using socket.
     1. Create personal channel (make:event)
         1.1. With PUBLIC channel, return the name of channel.
         1.2. With PRIVATE channel, return PrivateChannel('name_of_channel').
