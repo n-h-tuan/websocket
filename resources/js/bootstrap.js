@@ -41,11 +41,11 @@ let Echo1 = new Echo({
     wsPort: 6001,
     forceTLS: false,
     disableStats: true,
-    // auth: {
-    //     headers: {
-    //         Authorization: 'Bearer '.concat(api_token),
-    //     },
-    // },
+    auth: {
+        headers: {
+            Authorization: 'Bearer '.concat(api_token),
+        },
+    },
 });
 Echo1.private('private-channel')
     .listen('TestPrivateEvent', (e) => {
@@ -62,5 +62,24 @@ let Echo2 = new Echo({
 });
 Echo2.channel('public-channel')
     .listen('TestPublicEvent', (e) => {
+        console.log(e.message);
+    });
+
+let Echo3 = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    forceTLS: false,
+    disableStats: true,
+    auth: {
+        headers: {
+            Authorization: 'Bearer '.concat(api_token),
+        },
+    },
+});
+Echo3.private('second-private-channel')
+    .listen('SecondPrivateEvent', (e) => {
         console.log(e.message);
     });

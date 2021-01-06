@@ -1,4 +1,4 @@
-Several tips when using socket.
+## Several tips when using socket.
     1. Create personal channel (make:event)
         1.1. With PUBLIC channel, return the name of channel.
         1.2. With PRIVATE channel, return PrivateChannel('name_of_channel').
@@ -9,3 +9,5 @@ Several tips when using socket.
 => More detail: https://laravel.com/docs/7.x/broadcasting
     
     4. To access to PrivateChannel (for API_TOKEN AUTH), you must add header `Authorization` to the Library using to listen broadcast channel.
+
+=> Basically: Creating EVENT, EVENT will be broadcasted on SPECIFIC CHANNEL, depend on property "BroadcastOn" in EVENT file 

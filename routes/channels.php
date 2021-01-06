@@ -18,6 +18,10 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 Broadcast::channel('private-channel', function ($user) {
-    Log::debug('channel.php', ['user' => $user]);
-    return $user;
+    Log::debug('private-channel-1', ['user' => $user]);
+    return $user->id == 1;
+});
+Broadcast::channel('second-private-channel', function ($user) {
+    Log::debug('private-channel-2', ['user' => $user]);
+    return $user->id == 2;
 });
